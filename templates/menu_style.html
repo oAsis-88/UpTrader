@@ -1,0 +1,26 @@
+{% load static %}
+
+<link href="{% static "TreeView/css/menu_style.css" %}" rel="stylesheet">
+
+{% for item in paragraph_list %}
+    <ul class="tree">
+        {#        <div style="margin-left: {{ item.tab }}px; background-color: beige; width: max-content;">#}
+        <div>
+            {% if item.child %}
+                <details open>
+                    <summary
+                            style="margin: 5px 0; background-color: beige; width: max-content; height: 20px; font-size: 18px">
+                        <a href="{{ item.url.get_absolute_url }}">{{ item.title }}</a>
+                    </summary>
+                    {% include "menu_style.html" with paragraph_list=item.child %}
+                </details>
+            {% else %}
+                <summary
+                        style="margin: 5px 0; background-color: beige; width: max-content; height: 20px; font-size: 18px">
+                    <a href="{{ item.url.get_absolute_url }}">{{ item.title }}</a>
+                </summary>
+            {% endif %}
+        </div>
+    </ul>
+
+{% endfor %}

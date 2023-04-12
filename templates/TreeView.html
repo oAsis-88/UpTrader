@@ -1,0 +1,9 @@
+{% load static custom_tags %}
+
+
+{% if name %}
+    {% draw_menu name %}
+{% else %}
+    {% draw_menu %}
+{% endif %}
+

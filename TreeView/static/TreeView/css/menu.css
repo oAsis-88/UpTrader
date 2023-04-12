@@ -1,0 +1,10 @@
+a{
+    color: black;
+    text-decoration: black;
+}
+.tab{
+    background-color: #dfdfdf;
+    width: max-content;
+    height: 20px;
+    font-size: 18px
+}

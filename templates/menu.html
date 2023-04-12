@@ -1,0 +1,14 @@
+{% load static %}
+
+<link href="{% static "TreeView/css/menu.css" %}" rel="stylesheet">
+
+<div id="treeview" class="container">
+    {% for item in paragraph_list %}
+            <p class="tab" style="margin-left: {{ item.tab }}px">
+                <a href="{{ item.url.get_absolute_url }}" >{{ item.title }}</a>
+            </p>
+        {% if item.child %}
+            {% include "menu.html" with paragraph_list=item.child %}
+        {% endif %}
+    {% endfor %}
+</div>
